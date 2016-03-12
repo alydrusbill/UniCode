@@ -1,0 +1,73 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication14
+{
+    class Program
+    {
+        static int luas(int panjang, int lebar)
+        {
+
+            return panjang * lebar;
+        }
+        static int lingkaran(int jari)
+        {
+            return (22 / 7) * jari * jari;
+        }
+        static void Main(string[] args)
+        {
+            int hasil,panjang,lebar,jari,pilih,repeat;
+            string input;
+            awal :
+            Console.WriteLine("Apa yang akan anda hitung ?");
+            Console.WriteLine("[1]jika luas persegi panjang");
+            Console.WriteLine("[2]jika luas lingkaran");
+            input = Console.ReadLine();
+            int.TryParse(input, out pilih);
+
+            switch (pilih)
+            {
+                case 1:
+                    
+                    Console.WriteLine("masukkan lebarnya   :");
+                    input = Console.ReadLine();
+                    int.TryParse(input, out lebar);
+
+                    Console.WriteLine("masukkan panjangnya :");
+                    input = Console.ReadLine();
+                    int.TryParse(input, out panjang);
+                    hasil = luas(panjang, lebar);
+
+                    Console.WriteLine("hasilnya adalah ={0}", hasil);
+                    Console.ReadLine();
+                    break;
+                case 2:
+
+
+                    Console.WriteLine("masukkan jari-jari :");
+                    input = Console.ReadLine();
+                    int.TryParse(input, out jari);
+
+                    hasil = lingkaran(jari);
+                    Console.WriteLine("hasilnya adalah ={0}", hasil);
+
+                    break;
+            }
+            Console.WriteLine("Apakah Anda Ingin Menginput Kembali");
+            Console.WriteLine("[1]Untuk YA");
+            Console.WriteLine("[2]Untuk Tidak");
+            input = Console.ReadLine();
+            int.TryParse(input, out repeat);
+
+            if (repeat == 1)
+            {
+                Console.Clear();
+                goto awal;
+            }
+            
+        }
+    }
+}
